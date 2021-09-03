@@ -1,9 +1,10 @@
 @echo off
 
 :: /// Create directory ///
-mkdir src\image
-mkdir assests\js
-mkdir assests\css
+mkdir public\images
+mkdir public\pages
+mkdir src\scripts\classes
+mkdir src\styles
 
 :: /// Vars ///
 setlocal EnableDelayedExpansion
@@ -15,25 +16,28 @@ set "html003=<head>"
 set "html004=    <meta charset='UTF-8'>"
 set "html005=    <meta http-equiv='X-UA-Compatible' content='IE=edge'>"
 set "html006=    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-set "html007=    <link rel='stylesheet' href='./assests/css/style.css'>"
+set "html007=    <link rel='stylesheet' href='./src/styles/general.css'>"
 set "html008=    <title>Document</title>"
 set "html009=</head>"
 set "html010=<body>"    
 set "html011=</body>"
-set "html012=<script src='./assests/js/script.js'></script>"
+set "html012=<script src='./src/scripts/app.js'></script>"
 set "html013=</html>"
 
 :: /// Css ///
-set "css001=*{"
+set "css001=*, :after, :before{"
 set "css002=    margin: 0;"
 set "css003=    padding: 0;"
 set "css004=    box-sizing: border-box;"
 set "css005=}"
-set "css007=:after, :before{"
-set "css008=    margin: 0;"
-set "css009=    padding: 0;"
-set "css010=    box-sizing: border-box;"
-set "css011=}"
+
+:: /// Js - App ///
+set "js001=export default class App{"
+set "js002=}"
+
+:: /// Js - app ///
+set "js003=import { App } from './classes/App.js'"
+set "js004=const app = new App()"
 
 :: /// Create files -> HTML - CSS - JS ///
 (
@@ -53,20 +57,26 @@ set "css011=}"
 ) > index.html
 
 (
+    echo !js001!
+    echo !js002!
+) > src\scripts\classes\App.js
+
+(
+    echo !js003!
+    echo.
+    echo !js004!
+) > src\scripts\app.js
+
+(
     echo !css001!
     echo !css002!
     echo !css003!
     echo !css004!
     echo !css005!
-    echo.
-    echo !css007!
-    echo !css008!
-    echo !css009!
-    echo !css010!
-    echo !css011!
-) > assests\css\style.css
+) > src\styles\general.css
 
-type nul >assests\js\script.js
+type nul >public\favicon.ico
+type nul >public\index.html
 
 :: /// Open project
 code .
