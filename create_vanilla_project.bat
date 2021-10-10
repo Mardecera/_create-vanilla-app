@@ -5,12 +5,9 @@ mkdir docs
 mkdir fonts
 mkdir images
 mkdir pages
-mkdir scripts\app.js
-mkdir scripts\classes\App.js
-mkdir scripts\classes\Manager.js
-mkdir scripts\classes\Ui.js
-mkdir scripts\functions\selectors.js
-mkdir styles\general.css
+mkdir scripts\classes
+mkdir scripts\functions
+mkdir styles
 
 :: /// Vars ///
 setlocal EnableDelayedExpansion
@@ -45,6 +42,10 @@ set "js002=}"
 set "js003=import { App } from './classes/App.js'"
 set "js004=const app = new App()"
 
+:: /// Js - selectors ///
+set "js005=const $ = (query) => document.querySelector(query)"
+set "js006=const $$ = (query) => document.querySelectorAll(query)"
+
 :: /// Create files -> HTML - CSS - JS ///
 (
     echo !html001!
@@ -72,6 +73,11 @@ set "js004=const app = new App()"
     echo.
     echo !js004!
 ) > scripts\app.js
+
+(
+    echo !js005!
+    echo !js006!
+) > scripts\functions\selectors.js
 
 (
     echo !css001!
