@@ -89,7 +89,6 @@ set "js006=const $$ = (query) => document.querySelectorAll(query)"
 
 type nul >scripts\classes\Manager.js
 type nul >scripts\classes\Ui.js
-type nul >scripts\functions\selectors.js
 
 :: /// Open project
 code .
