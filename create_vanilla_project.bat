@@ -1,10 +1,16 @@
 @echo off
 
 :: /// Create directory ///
-mkdir public\images
-mkdir public\pages
-mkdir src\scripts\classes
-mkdir src\styles
+mkdir docs
+mkdir fonts
+mkdir images
+mkdir pages
+mkdir scripts\app.js
+mkdir scripts\classes\App.js
+mkdir scripts\classes\Manager.js
+mkdir scripts\classes\Ui.js
+mkdir scripts\functions\selectors.js
+mkdir styles\general.css
 
 :: /// Vars ///
 setlocal EnableDelayedExpansion
@@ -16,12 +22,12 @@ set "html003=<head>"
 set "html004=    <meta charset='UTF-8'>"
 set "html005=    <meta http-equiv='X-UA-Compatible' content='IE=edge'>"
 set "html006=    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-set "html007=    <link rel='stylesheet' href='./src/styles/general.css'>"
+set "html007=    <link rel='stylesheet' href='./styles/general.css'>"
 set "html008=    <title>Document</title>"
 set "html009=</head>"
 set "html010=<body>"    
 set "html011=</body>"
-set "html012=<script src='./src/scripts/app.js'></script>"
+set "html012=<script src='./scripts/app.js'></script>"
 set "html013=</html>"
 
 :: /// Css ///
@@ -59,13 +65,13 @@ set "js004=const app = new App()"
 (
     echo !js001!
     echo !js002!
-) > src\scripts\classes\App.js
+) > scripts\classes\App.js
 
 (
     echo !js003!
     echo.
     echo !js004!
-) > src\scripts\app.js
+) > scripts\app.js
 
 (
     echo !css001!
@@ -73,10 +79,11 @@ set "js004=const app = new App()"
     echo !css003!
     echo !css004!
     echo !css005!
-) > src\styles\general.css
+) > styles\general.css
 
-type nul >public\favicon.ico
-type nul >public\index.html
+type nul >scripts\classes\Manager.js
+type nul >scripts\classes\Ui.js
+type nul >scripts\functions\selectors.js
 
 :: /// Open project
 code .
