@@ -1,4 +1,4 @@
-# Create Vanilla Project
+# Create Vanilla App
 
 Batch script to create a vanilla project with java script, css, and html.
 
