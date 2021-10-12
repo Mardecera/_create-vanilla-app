@@ -9,13 +9,13 @@ Batch script to create a vanilla project with java script, css, and html.
 -   Open powershell in the folder where you want to create the project and execute:
 
     ```batch
-    create_vanilla_project
+    create-vanilla-app app-name
     ```
 
 ## Project structure
 
 ```batch
-    Project
+    app
     ├── docs
     ├── fonts
     ├── images

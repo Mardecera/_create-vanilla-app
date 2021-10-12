@@ -1,13 +1,15 @@
 @echo off
 
+set folderName=%1
+
 :: /// Create directory ///
-mkdir docs
-mkdir fonts
-mkdir images
-mkdir pages
-mkdir scripts\classes
-mkdir scripts\functions
-mkdir styles
+mkdir %folderName%\docs
+mkdir %folderName%\fonts
+mkdir %folderName%\images
+mkdir %folderName%\pages
+mkdir %folderName%\scripts\classes
+mkdir %folderName%\scripts\functions
+mkdir %folderName%\styles
 
 :: /// Vars ///
 setlocal EnableDelayedExpansion
@@ -61,23 +63,23 @@ set "js006=const $$ = (query) => document.querySelectorAll(query)"
     echo !html011!
     echo !html012!
     echo !html013!
-) > index.html
+) > %folderName%\index.html
 
 (
     echo !js001!
     echo !js002!
-) > scripts\classes\App.js
+) > %folderName%\scripts\classes\App.js
 
 (
     echo !js003!
     echo.
     echo !js004!
-) > scripts\app.js
+) > %folderName%\scripts\app.js
 
 (
     echo !js005!
     echo !js006!
-) > scripts\functions\selectors.js
+) > %folderName%\scripts\functions\selectors.js
 
 (
     echo !css001!
@@ -85,10 +87,10 @@ set "js006=const $$ = (query) => document.querySelectorAll(query)"
     echo !css003!
     echo !css004!
     echo !css005!
-) > styles\general.css
+) > %folderName%\styles\general.css
 
-type nul >scripts\classes\Manager.js
-type nul >scripts\classes\Ui.js
+type nul >%folderName%\scripts\classes\Manager.js
+type nul >%folderName%\scripts\classes\Ui.js
 
 :: /// Open project
-code .
+:: /// code .
